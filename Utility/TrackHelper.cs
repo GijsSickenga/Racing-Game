@@ -17,7 +17,7 @@ namespace CinematicCameraSystem {
 
             // Get shortest relative distance along track in case shortest path crosses the finish line.
             Vector3 relativeDistance = targetPosition - originPosition;
-            float inverseRelativeZ = totalTrackDistance - Mathf.Abs(relativeDistance.z) * -1 * Mathf.Sign(relativeDistance.z);
+            float inverseRelativeZ = (totalTrackDistance - Mathf.Abs(relativeDistance.z)) * -Mathf.Sign(relativeDistance.z);
             float shortestRelativeZ = Mathf.Abs(relativeDistance.z) < Mathf.Abs(inverseRelativeZ) ? relativeDistance.z : inverseRelativeZ;
 
             return new Vector2(relativeDistance.x, shortestRelativeZ);
